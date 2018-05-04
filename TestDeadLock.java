@@ -1,4 +1,4 @@
-package thread;
+//package thread;
 //死锁
 public class TestDeadLock implements Runnable {
     public int flag = 1;
@@ -26,9 +26,10 @@ public class TestDeadLock implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
-            synchronized (o2) {
-                System.out.println(1);
+                
+                synchronized (o2) {
+                    System.out.println(1);
+                }
             }
         }
         if (flag == 0) {
@@ -38,9 +39,10 @@ public class TestDeadLock implements Runnable {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-            }
-            synchronized (o1) {
-                System.out.println(2);
+
+                synchronized (o1) {
+                    System.out.println(2);
+                }
             }
         }
     }
